@@ -62,7 +62,7 @@ var paceCalculator = (function () {
 
     var calculate = {
         time : function() {
-            if ( !_check.time() ) { modal.open('error', 'To calculate Time, enter the Pace and Distance'); }
+            if ( !_check.time() ) { modal.open('error', 'Para calcular o tempo, indique o Pace e a Distância'); }
             else {
                 var time = seconds_to_hhmmss( _get.distance() * _get.pace() * _get.factor() );
                 document.querySelector('#time-hours').value = time['h'];
@@ -73,7 +73,7 @@ var paceCalculator = (function () {
             }
         },
         distance : function() {
-            if ( !_check.distance() ) { modal.open('error', 'To calculate Distance, enter the Time and Pace'); }
+            if ( !_check.distance() ) { modal.open('error', 'Para calcular a Distância, indique o Tempo e o Pace'); }
             else {
                 var distance = _get.time() / ( _get.pace() / _get.factor(true) );
                 document.querySelector('#distance-amount').value = distance.toFixed(4);
@@ -82,7 +82,7 @@ var paceCalculator = (function () {
             }
         },
         pace : function() {
-            if ( !_check.pace() ) { modal.open('error', 'To calculate Pace, enter the Time and Distance'); }
+            if ( !_check.pace() ) { modal.open('error', 'Para calcular o Pace, indique o Tempo e a Distância'); }
             else {
                 var pace_sec = ( _get.time() / _get.distance() ) / _get.factor();
                 var pace = seconds_to_hhmmss( parseInt(pace_sec) );

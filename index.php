@@ -42,7 +42,7 @@ function render_amc_running_pace_calculator() {
     <section role="main">
 
         
-        <form id="pace-calculator-form">
+        <form id="pace-calculator-form" id="form-area">
             <dl>
                 <dt><i class="fa fa-fw fa-clock-o"></i> <strong>Tempo</strong></dt>
                 <dd class="time-input">
@@ -61,7 +61,7 @@ function render_amc_running_pace_calculator() {
                 </dd>
                 <dd>
                     <p>Para calcular o seu tempo, preencha a distância e pace e clique aqui.</p>
-                    <button id="calculate-time">Time <i class="fa fa-chevron-right"></i></button>
+                    <button id="calculate-time">Tempo <i class="fa fa-chevron-right"></i></button>
                 </dd>
 
                 <dt><i class="fa fa-fw fa-road"></i> <strong>Distância</strong></dt>
@@ -80,10 +80,10 @@ function render_amc_running_pace_calculator() {
                             </select>
                         </span>
                     </div>
-                    <div class="separator-or"> &mdash; or &mdash; </div>
+                    <div class="separator-or"> &mdash; ou &mdash; </div>
                     <div class="event-input">
                         <select name="event-select" id="event-select" class="triple-w">
-                            <option value="false">Escolha uma distância pré-definida</option>
+                            <option value="false">Distância pré-definida</option>
                             <option value="42.195-K">Maratona</option>
                             <option value="21.0975-K">Meia-maratona</option>
                             <option value="20-K">20Km</option>
@@ -153,11 +153,11 @@ function enqueue_amc_running_pace_calculator_css() {
     $css_path = $plugin_url . 'css/pacecalculator.css';
     wp_enqueue_style('amc-running-pace-calculator-css', $css_path);
 }
-// add_action('wp_enqueue_scripts', 'enqueue_amc_running_pace_calculator_css');
+add_action('wp_enqueue_scripts', 'enqueue_amc_running_pace_calculator_css');
 
 function enqueue_amc_running_pace_calculator_js() {
     $plugin_url = plugins_url('/', __FILE__);
-    $js_path = $plugin_url . 'js/pacecalculator.min.js';
+    $js_path = $plugin_url . 'js/pacecalculator.js';
     wp_enqueue_script('amc-running-pace-calculator-js', $js_path, array(), null, true);
 }
 add_action('wp_enqueue_scripts', 'enqueue_amc_running_pace_calculator_js');
